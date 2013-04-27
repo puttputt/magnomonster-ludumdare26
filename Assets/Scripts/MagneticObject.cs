@@ -29,7 +29,7 @@ public class MagneticObject : MonoBehaviour {
 		if(this.player != null)	
 		{
 			this.playerPositivePolarity = collider.GetComponent<Polarity>().PositivePolarity;
-			Debug.Log("DO STUFF");
+			//Debug.Log("DO STUFF");
 			
 			//Offset player position so its closes to the top horns
 			Vector3 playerPosition = this.player.transform.position + new Vector3(0,5,0);
@@ -38,7 +38,7 @@ public class MagneticObject : MonoBehaviour {
 			
 			if(this.PositivePolarity != this.playerPositivePolarity)
 			{
-				Debug.Log("OPP");
+				//Debug.Log("OPP");
 				//ATTRACT
 				this.transform.position = Vector3.MoveTowards(
 					this.transform.position, 
@@ -49,7 +49,7 @@ public class MagneticObject : MonoBehaviour {
 			else
 			{
 				//PUSH AWAY
-				Debug.Log("EQUAL");
+				//Debug.Log("EQUAL");
 				
 				//Find away point
 				float dx = this.transform.position.x - playerPosition.x;
@@ -101,7 +101,7 @@ public class MagneticObject : MonoBehaviour {
 	
 	void OnTriggerEnter(Collider c)
 	{
-		Debug.Log("ENTER");
+		//Debug.Log("ENTER");
 		this.player = c.GetComponent<Polarity>().controller;
 		this.collider = c.gameObject;
 	}
