@@ -56,6 +56,7 @@ Library/assetDatabase3
 Library/expandedItems
 Library/guidmapper
 Library/*
+Temp/*
 bug-csharp.sln
 bug.sln
 bug.userprefs

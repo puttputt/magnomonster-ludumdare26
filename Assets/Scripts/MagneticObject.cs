@@ -24,26 +24,53 @@ public class MagneticObject : MonoBehaviour {
 		}
 	}
 
-	void Update () 
+	void FixedUpdate () 
 	{
 		if(this.player != null)	
 		{
 			this.playerPositivePolarity = collider.GetComponent<Polarity>().PositivePolarity;
 			Debug.Log("DO STUFF");
+			
+			//Offset player position so its closes to the top horns
+			Vector3 playerPosition = this.player.transform.position + new Vector3(0,5,0);
+			
+			float distance = Vector3.Distance(this.transform.position, playerPosition);
+			
 			if(this.PositivePolarity != this.playerPositivePolarity)
 			{
 				Debug.Log("OPP");
 				//ATTRACT
-				this.transform.Translate(this.player.transform.position * Time.deltaTime);
+				this.transform.position = Vector3.MoveTowards(
+					this.transform.position, 
+					playerPosition, 
+					Time.deltaTime * 10.0f / (distance / 5.0f)
+					);
 			}
 			else
 			{
 				//PUSH AWAY
 				Debug.Log("EQUAL");
-				this.transform.Translate(this.player.transform.position * -1 * Time.deltaTime);
+				
+				//Find away point
+				float dx = this.transform.position.x - playerPosition.x;
+				float dy = this.transform.position.y - playerPosition.y;
+				
+				float k = Mathf.Sqrt(distance*distance / (dx*dx + dy*dy));
+				
+				float x3 = this.transform.position.x + dx * k;
+				float y3 = this.transform.position.y + dy * k;
+				
+				Vector3 newPos = new Vector3(x3, y3, 0);
+				
+				this.transform.position = Vector3.MoveTowards(
+					this.transform.position,
+					newPos,
+					Time.deltaTime * 10.0f/ (distance / 5.0f )
+					);
 			}
 		}
 		
+		//Make sure its still on the z plane and is not floating
 		this.transform.position = new Vector3(
 			this.transform.position.x, 
 			this.transform.position.y, 
