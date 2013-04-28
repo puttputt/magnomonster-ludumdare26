@@ -6,21 +6,30 @@ public class BombController : MonoBehaviour
 	[SerializeField]
 	private GameObject explosion;
 	
-	void OnTriggerEnter(Collider c)
+	private LevelController levelController;
+	
+	private void Awake()
 	{
-		if(c.tag == "Player")
+		this.levelController = GameObject.Find("World").GetComponent<LevelController>();	
+	}
+	
+	private void OnCollisionEnter(Collision c)
+	{
+		if(c.gameObject.tag == "Player" || c.gameObject.tag == "Heart")
 		{
-			this.Explode();
+			this.Explode(c.gameObject);
 		}
 	}
 	
-	private void Explode()
+	private void Explode(GameObject collidedObject)
 	{
 		GameObject.Instantiate(
 			this.explosion,
 			this.transform.position,
 			Quaternion.identity
 			);
+		this.levelController.Explode();
+		Destroy(collidedObject);
 		Destroy(this.gameObject);
 	}
 }

@@ -4,8 +4,8 @@ using System.Collections.Generic;
 
 public class MagneticObject : MonoBehaviour 
 {
-	
-	public bool PositivePolarity { get; private set; }
+	[SerializeField]
+	public bool PositivePolarity;
 	
 	private Animation animation;
 	private List<string> animations = new List<string>();
@@ -16,13 +16,13 @@ public class MagneticObject : MonoBehaviour
 	
 	void Awake ()
 	{
-		this.PositivePolarity = true;
 		this.animation = this.GetComponent<Animation>();
 		
 		foreach(AnimationState state in this.animation)
 		{
 			this.animations.Add(state.name);	
 		}
+		this.ShiftPolarity();
 	}
 
 	void FixedUpdate () 
