@@ -1,0 +1,16 @@
+
+Friday April 26
+8pm - 11pm:
+Created basic models for the monster, a heart and a bomb.
+
+11pm-2am:
+Basic character controller for the monsster, polarity swapping and polarity swapping animations for the heart and bomb.
+
+Saturday April 27
+
+1pm - 5pm
+
+Got proper magnet attract and repulse working as well as acceleration based on distance.
+
+Animations for the monster in all directions - still kind of sketchy but they will work for now.
+
