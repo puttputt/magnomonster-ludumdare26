@@ -7,6 +7,8 @@ public class MagneticObject : MonoBehaviour
 	[SerializeField]
 	public bool PositivePolarity;
 	
+	private AudioSource audio;
+	
 	private Animation animation;
 	private List<string> animations = new List<string>();
 	
@@ -17,6 +19,7 @@ public class MagneticObject : MonoBehaviour
 	void Awake ()
 	{
 		this.animation = this.GetComponent<Animation>();
+		this.audio = this.GetComponent<AudioSource>();
 		
 		foreach(AnimationState state in this.animation)
 		{
@@ -33,7 +36,7 @@ public class MagneticObject : MonoBehaviour
 			//Debug.Log("DO STUFF");
 			
 			//Offset player position so its closes to the top horns
-			Vector3 playerPosition = this.player.transform.position + new Vector3(0,5,0);
+			Vector3 playerPosition = this.player.transform.position + new Vector3(0,3,0);
 			
 			float distance = Vector3.Distance(this.transform.position, playerPosition);
 			
@@ -102,11 +105,13 @@ public class MagneticObject : MonoBehaviour
 	
 	void OnTriggerEnter(Collider c)
 	{
-		if(c.tag == "PlayerCollider")
+		if(c.tag == "PlayerCollider" && this.player == null)
 		{
 			this.player = c.GetComponent<Polarity>().controller;
 			this.collider = c.gameObject;
+			this.audio.Play();
 		}
+		
 	}
 	
 	void OnTriggerExit(Collider c)
@@ -114,6 +119,7 @@ public class MagneticObject : MonoBehaviour
 		if(c.tag == "PlayerCollider")
 		{
 			this.player = null;
+			this.audio.Stop();
 		}
 	}
 

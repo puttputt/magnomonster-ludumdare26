@@ -28,7 +28,9 @@ public class BombController : MonoBehaviour
 			this.transform.position,
 			Quaternion.identity
 			);
+		
 		this.levelController.Explode();
+		
 		Destroy(collidedObject);
 		Destroy(this.gameObject);
 	}

@@ -66,3 +66,9 @@ Assembly-CSharp-Editor-vs.csproj
 Assembly-CSharp-Editor.csproj
 Assembly-CSharp-Editor.pidb
 Assets/NGUI/*
+Assets/Sound/170568__neweonorchestra__holydrone.wav
+Assets/Sound/bomb.wav
+Assets/Sound/heart-pickup.wav
+Assets/Sound/magnet.wav
+Builds/mm/mm.html
+Builds/mm/mm.unity3d

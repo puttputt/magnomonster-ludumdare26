@@ -14,3 +14,13 @@ Got proper magnet attract and repulse working as well as acceleration based on d
 
 Animations for the monster in all directions - still kind of sketchy but they will work for now.
 
+7pm - 12am
+
+Created particle effects for Bomb explosion and Heart collection.
+
+Created menus with NGUI to facilitate all the things.
+
+Created two rudimentary levels.
+
+Game is functional.
+
