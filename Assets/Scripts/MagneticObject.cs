@@ -119,7 +119,7 @@ public class MagneticObject : MonoBehaviour
 		if(c.tag == "PlayerCollider")
 		{
 			this.player = null;
-			this.audio.Stop();
+			this.audio.Pause();
 		}
 	}
 
