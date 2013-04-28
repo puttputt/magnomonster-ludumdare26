@@ -24,3 +24,14 @@ Created two rudimentary levels.
 
 Game is functional.
 
+Sunday April 28
+
+11am - 3:30 pm
+
+Added ability for magnetic objects to swap polarity based on a timer and to move on a timer.
+
+Used Landond's image for a background - looks amazing.
+
+Created 9 levels increasing in difficulty.
+
+Got some sound from freesound and modified it, added to the game.
