@@ -1,6 +1,7 @@
 Assembly-CSharp-vs.csproj
 Assembly-CSharp.csproj
 Assembly-CSharp.pidb
+Artwork/*
 ProjectSettings/AudioManager.asset
 ProjectSettings/DynamicsManager.asset
 ProjectSettings/EditorBuildSettings.asset
@@ -28,6 +29,7 @@ Assets/Models/heart.c4d
 Assets/Models/heart2.c4d
 Assets/Models/negative.c4d
 Assets/Models/positive.c4d
+Assets/Standard Assets/*
 Assets/Standard Assets/Toon Shading/Sources/Shaders/Toony-Basic.shader
 Assets/Standard Assets/Toon Shading/Sources/Shaders/Toony-BasicOutline.shader
 Assets/Standard Assets/Toon Shading/Sources/Shaders/Toony-Lighted.shader
@@ -60,3 +62,7 @@ Temp/*
 bug-csharp.sln
 bug.sln
 bug.userprefs
+Assembly-CSharp-Editor-vs.csproj
+Assembly-CSharp-Editor.csproj
+Assembly-CSharp-Editor.pidb
+Assets/NGUI/*
