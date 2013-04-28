@@ -246,11 +246,13 @@ public class MonsterController : MonoBehaviour
 			{
 				this.right.PositivePolarity = false;
 				this.left.PositivePolarity = true;
+				this.animation.animation.Play("Polarity2");
 			}
 			else
 			{
 				this.right.PositivePolarity = true;
 				this.left.PositivePolarity = false;
+				this.animation.animation.Play("Polarity1");
 			}
 		}
 		
