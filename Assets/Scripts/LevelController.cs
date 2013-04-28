@@ -7,6 +7,12 @@ public class LevelController : MonoBehaviour {
 	[SerializeField]
 	private List<GameObject> hearts = new List<GameObject>();
 	
+	[SerializeField]
+	private UILabel heartLabel;
+	
+	[SerializeField]
+	private UILabel levelLabel;
+	
 	private int totalHearts;
 	private int heartsCollected;
 	
@@ -22,15 +28,25 @@ public class LevelController : MonoBehaviour {
 		this.totalHearts = hearts.Count;
 		this.heartsCollected = 0;
 		this.playerAlive = true;
+		
+		this.levelLabel.text = "Level " + this.thisLevelNumber.ToString();
+		this.SetHeartLabel(this.heartsCollected, this.totalHearts);
 	}
 	
-	// Update is called once per frame
-	void Update ()
+	
+	
+	private void Update ()
 	{
-		if(this.totalHearts == this.heartsCollected)
+		if(this.totalHearts == this.heartsCollected && this.playerAlive)
 		{
-			//Win
-			Application.LoadLevel((this.thisLevelNumber + 1).ToString());
+			if(this.timeout <=0)
+			{
+				Application.LoadLevel((this.thisLevelNumber + 1).ToString());
+			}
+			else
+			{
+				this.timeout -= Time.deltaTime;	
+			}
 		}
 		else if (!this.playerAlive)
 		{
@@ -43,13 +59,21 @@ public class LevelController : MonoBehaviour {
 				this.timeout -= Time.deltaTime;	
 			}
 		}
+	}
 	
+	private void FixedUpdate()
+	{
+		if(Input.GetKeyDown(KeyCode.Escape))
+		{
+			Application.LoadLevel("MainMenu");	
+		}
 	}
 	
 	public void HeartCollected()
 	{
 		Debug.Log("collected");
 		this.heartsCollected++;
+		this.SetHeartLabel(this.heartsCollected, this.totalHearts);
 	}
 	
 	public void HeartDestroyed()
@@ -62,5 +86,10 @@ public class LevelController : MonoBehaviour {
 	{
 		Debug.Log("you lose");	
 		this.playerAlive = false;
+	}
+	
+	private void SetHeartLabel(int collected, int total)
+	{
+		this.heartLabel.text = "Love Collected: " + collected.ToString() + "/" + total.ToString();	
 	}
 }
