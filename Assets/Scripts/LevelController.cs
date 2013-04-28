@@ -41,7 +41,14 @@ public class LevelController : MonoBehaviour {
 		{
 			if(this.timeout <=0)
 			{
-				Application.LoadLevel((this.thisLevelNumber + 1).ToString());
+				if(this.thisLevelNumber == 9)
+				{
+					Application.LoadLevel("MainMenu");
+				}
+				else
+				{
+					Application.LoadLevel((this.thisLevelNumber + 1).ToString());
+				}
 			}
 			else
 			{
