@@ -1,9 +1,8 @@
 using UnityEngine;
 using System.Collections;
 
-public class MonsterController : MonoBehaviour {
-	
-	
+public class MonsterController : MonoBehaviour 
+{	
 	private CharacterController controller;
 	private Vector3 velocity = Vector3.zero;
 	private Animation animation;
@@ -256,4 +255,5 @@ public class MonsterController : MonoBehaviour {
 		}
 		
 	}
+	
 }

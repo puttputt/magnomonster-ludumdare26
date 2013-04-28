@@ -2,7 +2,8 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class MagneticObject : MonoBehaviour {
+public class MagneticObject : MonoBehaviour 
+{
 	
 	public bool PositivePolarity { get; private set; }
 	
@@ -43,7 +44,7 @@ public class MagneticObject : MonoBehaviour {
 				this.transform.position = Vector3.MoveTowards(
 					this.transform.position, 
 					playerPosition, 
-					Time.deltaTime * 10.0f / (distance / 5.0f)
+					Time.deltaTime * 10.0f / (distance / 8.0f)
 					);
 			}
 			else
@@ -65,7 +66,7 @@ public class MagneticObject : MonoBehaviour {
 				this.transform.position = Vector3.MoveTowards(
 					this.transform.position,
 					newPos,
-					Time.deltaTime * 10.0f/ (distance / 5.0f )
+					Time.deltaTime * 10.0f/ (distance / 8.0f )
 					);
 			}
 		}
@@ -101,14 +102,19 @@ public class MagneticObject : MonoBehaviour {
 	
 	void OnTriggerEnter(Collider c)
 	{
-		//Debug.Log("ENTER");
-		this.player = c.GetComponent<Polarity>().controller;
-		this.collider = c.gameObject;
+		if(c.tag == "PlayerCollider")
+		{
+			this.player = c.GetComponent<Polarity>().controller;
+			this.collider = c.gameObject;
+		}
 	}
 	
 	void OnTriggerExit(Collider c)
 	{
-		this.player = null;
+		if(c.tag == "PlayerCollider")
+		{
+			this.player = null;
+		}
 	}
 
 }
