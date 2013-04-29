@@ -30,8 +30,14 @@ Sunday April 28
 
 Added ability for magnetic objects to swap polarity based on a timer and to move on a timer.
 
-Used Landond's image for a background - looks amazing.
-
 Created 9 levels increasing in difficulty.
 
 Got some sound from freesound and modified it, added to the game.
+
+4:00 pm - 7:00 pm
+
+Realized that I'm not allowed to use assets that were not created in the 48 hours by me. Recorded and replaced all sound. Created custom bg image.
+
+Polishing, fixed a few issues.
+
+Submitted game.
